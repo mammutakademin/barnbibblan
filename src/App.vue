@@ -2,11 +2,28 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/contact">Contact</router-link> |
+      <router-link to="/library">BIBLIOTEK</router-link>
     </div>
-    <router-view/>
+    <!-- <router-view/> -->
+    <BookLibrary :library="listOfBooks"/>
   </div>
 </template>
+
+<script>
+// import { defineComponent } from '@vue/composition-api'
+import books from './assets/books.json'
+import BookLibrary from './views/BookLibrary.vue'
+export default {
+  components: {BookLibrary},
+  data(){return{
+    listOfBooks: books
+  }}
+}
+</script>
+
+
 
 <style lang="scss">
 #app {

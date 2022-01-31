@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import BookLibrary from '../views/BookLibrary.vue'
+import Contact from '../views/Contact.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
+  {path: '/', name: 'Home', component: Home},
+  {path: '/contact', name: 'Contact', component: Contact},
+  {path: '/library', name: 'Library', component: BookLibrary},
+
   {
     path: '/about',
     name: 'About',
