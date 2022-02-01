@@ -1,10 +1,15 @@
 <template>
-  <main class="book">
-      <section @click="$emit('displayBook', book)" :style="{ 'background-color': book.color }">
-      <h3>{{book.title}}</h3>
-      <p>{{book.author}}</p>
-      </section>
-  </main>
+  <article class="book">
+    <router-link :to="{ name: 'SingleBookView', params: { book: book }}">
+    
+      <div :style="{ 'background-color': book.color }">
+        <div class="titlebox">
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+        </div>
+      </div>
+    </router-link>
+  </article>
 </template>
 
 <script>
@@ -14,37 +19,34 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
-section {
+.titlebox {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    align-items: flex-start;
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+    border-left: 1px solid rgba(0, 0, 0, 0.4);
+}
+div {
+    display: flex;
 	width: 10rem;
 	height: 13rem;
-	padding: 0.8rem;
     color: white;
     margin: 0;
 }
-section h3{
+div h3{
     font-size: 1rem;
     margin: 0;
-    text-align: start;
 }
-section p{
+div p{
     margin: 0;
     font-size: 0.8rem;
 }
 
-// section {
-// 	width: 6rem;
-// 	height: 8rem;
-// 	padding: 0.5rem;
-// }
 </style>
