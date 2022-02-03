@@ -1,6 +1,10 @@
 <template>
     <div class="singelBook">
       <router-view></router-view>
+      <router-link to="/library">
+      <button class="btnList">back to library</button>
+      </router-link>
+
       <h1>SingleBookView</h1>
       <article class="wrappersingelbook">
         <section :style="{ 'background-color': book.color }">
@@ -16,24 +20,31 @@
             <p>{{book.pages}} pages</p>
             <p class="plot">{{book.plot}}</p>
             <p>Ages {{book.audience}}</p>
-          <router-link :to="{ name: 'ReadingList', params: { book: book }}">
-             <button class="btnList">Oh, I want to read it!</button>
-          </router-link>
+
+          <button @click="addToReadList(book)" class="btnList">Oh, I want to read it!</button>
         </article>
       </article>
-      
     </div>
 </template>
 
 <script>
 
 export default {
-props:['book'],
-// methods: {
-//   addToList (){
-    
-//   }
-// }
+data(){return{
+  flag : true
+}},
+    computed: {
+    book(){
+      return this.$store.state.singlebook
+      }
+    },
+// props:['book'],
+methods: {
+  addToReadList (book){
+    alert('booked added to readlist')
+    this.$store.commit('addToRead', book)
+  }
+}
 }
 </script>
 

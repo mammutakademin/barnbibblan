@@ -1,21 +1,34 @@
 <template>
+<div>
+        <!-- <h1>{{booksInStore}}</h1> -->
+
   <article class="book">
-    <router-link :to="{ name: 'SingleBookView', params: { book: book }}">
-    
-      <div :style="{ 'background-color': book.color }">
+    <!-- <router-link :to="{ name: 'SingleBookView', params: { book: book }}"> -->
+    <!-- :style="{ 'background-color': book.color }" -->
+      <!-- <div @click="chooseBook" > -->
         <div class="titlebox">
-            <h3>{{book.title}}</h3>
-            <p>{{book.author}}</p>
+            <!-- <h3>{{book.title}}</h3> -->
+            <!-- <p>{{book.author}}</p> -->
         </div>
-      </div>
-    </router-link>
+      <!-- </div> -->
+    <!-- </router-link> -->
   </article>
+</div>
 </template>
 
 <script>
-
 export default {
-    props: ['book'],
+    methods: {
+      // chooseBook(){
+      //   this.$store.commit('chooseBook', this.book)
+      // }
+    },
+    // computed: {
+    //   booksInStore(){
+    //     return this.$store.state.books[6].title
+    //   }
+    // },
+    // props: ['book'],
 }
 </script>
 
@@ -37,7 +50,7 @@ div {
     display: flex;
 	width: 10rem;
 	height: 13rem;
-    color: white;
+    color: rgb(151, 24, 24);
     margin: 0;
 }
 div h3{
